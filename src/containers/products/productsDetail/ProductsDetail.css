@@ -1,0 +1,61 @@
+#page {
+    display: grid; /* 1.設定 display 為 grid */
+    width: 100%;
+    height: 100%;
+    grid-template-areas:
+                         "main  nav"
+                         "foot  nav"
+                         "foot  nav"
+                         "main2 main2"; /* 2.區域分為4行兩列 */
+    grid-template-rows: 846px 30px 824px 457px; /* 3.各区域 宽高设置 */
+    grid-template-columns: 915px 1fr;
+  }
+   
+  #page > nav {
+    grid-area: nav;
+    background-color: #ffa08c;
+  }
+  
+  #page > main {
+    grid-area: main;
+    background-color: #ffff64;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #page > main2 {
+    grid-area: main2;
+    background-color: #6488ff;
+  }
+  
+  #page > footer {
+    grid-area: foot;
+    background-color: #8cffa0;
+  }
+
+  .box{
+    width: 578px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .d-inline inline-column{
+    background-color:transparent ;
+    max-width: 330px;
+    
+  }
+  .demo{
+    display: inline;
+    width: 350px;
+  }
+  p.card-title{
+    display: inline-block;
+    width: 350px;
+    height: 350px;
+    align-items: center;
+  }
+  .slider-pic{
+    height: 578px;
+  }
