@@ -35,7 +35,7 @@ const Products = () => {
             <th><h3 className='Products＿size-h3'>藝術品分類</h3></th>
             <tr>
             <Dropdown>
-              <Dropdown.Toggle variant="--color-bg " style={{border:"none"}} id="dropdown-basic" className='m-0'>
+              <Dropdown.Toggle variant="--color-bg " style={{border:"none"}} id="dropdown-basic" className='ms-5'>
               依媒材
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -51,7 +51,7 @@ const Products = () => {
             </tr>
             <tr>
             <Dropdown>
-            <Dropdown.Toggle variant="--color-bg" style={{border:"none"}} id="dropdown-basic"  className='m-0'>
+            <Dropdown.Toggle variant="--color-bg" style={{border:"none"}} id="dropdown-basic"  className='ms-5'>
               依風格
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -110,7 +110,7 @@ const Products = () => {
             </tr>
             <tr>
             <Dropdown>
-              <Dropdown.Toggle variant="--color-bg" style={{border:"none"}} id="dropdown-basic"  className='m-0'>
+              <Dropdown.Toggle variant="--color-bg" style={{border:"none"}} id="dropdown-basic"  className='ms-5'>
                 創作年份
               </Dropdown.Toggle>
               <Dropdown.Menu>
