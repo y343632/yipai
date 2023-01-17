@@ -26,7 +26,7 @@
                          "..  Products__figure "
                          "Products__footer  Products__footer "
                       ; /* 2.區域分為4行兩列 */
-    grid-template-rows: 100px 300px 1200px 50px; /* 3.各區域 寬高設置 */
+    grid-template-rows: 100px 300px 1300px 50px; /* 3.各區域 寬高設置 */
     grid-template-columns:  250px 1fr ;
   }
   
@@ -107,7 +107,7 @@
    margin: 0px auto;
    column-count: 3;
    /*欄數*/
-   column-gap: 20px;
+   column-gap: 30px;
    /*每欄間隔*/
 }
 .Products__img-id-wrap{
@@ -116,6 +116,9 @@
         margin: 0 auto 5px;
         break-inside: avoid;
         /*定義頁面、列或是區域發生中斷時的元素表現方式。 auto->元素中斷、acoid->元素不中斷*/
+}
+.Products__productId{
+    margin-top: 10px;
 }
 .Products__card-img-top{
     width: 100%;
@@ -148,12 +151,6 @@
     padding: 5px;
     margin-bottom:0px ;
   }
-  /* .Products__productId{
-    width: 300px;
-    padding: 5px;
-    /* text-align:justify; */
-  */
-
 
 .Products__other-product{
     height: 500px;
