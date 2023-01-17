@@ -133,130 +133,120 @@ const Products = () => {
            </button> */}
           </nav>
           <figure id="Products__figure">
-            <table className="Products_other-product">
-  
-                <tr className=" Products__other-product">  
-                      <td className="Products__card-pic" >
-                          
+            
+           <div className='Products__figure-wrap'>
+              
+                         
+                        <div classMame="Products__img-id-wrap">
                         <Link to="./ProductsDetail">
                         <img className="Products__card-img-top" src={productsId01} />
-                        <div className="Products__card-text">
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
                         </Link>
-                      </td>
-             
-                      <td className="Products__card-pic" >
+                        </div>
+
+                        <div className="Products__img-id-wrap">
                       <Link to="./ProductsDetail"> 
                         <img className="Products__card-img-top" src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3YyXC9jcm9wcGVkXC8xOTQxNVwvbWFpblwvem9vbVwvODg3OTQxXzYwNzNhNjU4MzcyZTFiNTY2MzVlNTVlZDRhZjBlNTFmLmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc1MCwiaGVpZ2h0Ijo3NTAsImZpdCI6Imluc2lkZSJ9LCJ0b0Zvcm1hdCI6IndlYnAiLCJ3ZWJwIjp7InF1YWxpdHkiOjgwfX19?signature=afb4f906096d0f37c64b83457e1f8c52b3b75c6f0494b03efa5684e8356086cc" />
-                        <div className="Products__card-text">
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
                         </Link>
-                      </td>
+                        </div>
+                       
+                     
  
                
-                      <td className="Products__card-pic Products__card-pic-3 " >
+                        <div className="Products__img-id-wrap">
                       <Link to="./ProductsDetail">     
                         <img className="Products__card-img-top" src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3YyXC9jcm9wcGVkXC8xMDgwMVwvbWFpblwvem9vbVwvMTQzOTc5NV85YTU0YjcyZDE0YzdiOTM4MGI2YzFhMWU4OGY2M2UyYS5qcGVnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3NTAsImhlaWdodCI6NzUwLCJmaXQiOiJpbnNpZGUifSwidG9Gb3JtYXQiOiJ3ZWJwIiwid2VicCI6eyJxdWFsaXR5Ijo4MH19fQ==?signature=3354b764d2ecd526da29327b4a7fd33227b4909b8ea40e6d6c5e46f2700d84b9" />
-                        <div className="Products__card-text">
+                     
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
                         </Link>
-                      </td> 
+                        </div>
+                       
+                    
         
-                </tr> 
-                <tr className=" Products__other-product">  
-               
-                      <td className="Products__card-pic" >
+                        <div className="Products__img-id-wrap">
                       <Link to="ProductsDetail">
                         <img className="Products__card-img-top" src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3YyXC9jcm9wcGVkXC8zMjA5XC9tYWluXC96b29tXC85MDAwOTVfN2FhZWM3ZDc0Mjg0ZDQ1NzgxYWVjOTRhNGE5MzQyY2EuanBlZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUwLCJoZWlnaHQiOjc1MCwiZml0IjoiaW5zaWRlIn0sInRvRm9ybWF0Ijoid2VicCIsIndlYnAiOnsicXVhbGl0eSI6ODB9fX0=?signature=601f8e5811c653113228a4b0130e66339661804a70b61950cbf718d21e80ffdc"  />
-                        <div className="Products__card-text">
+                      
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
                         </Link>
-                      </td>         
+                        </div>
+                       
+                  
 
                 
-                       <td className="Products__card-pic Products__card-pic-6 " >
+                        <div className="Products__img-id-wrap">
                        <Link to="ProductsDetail">
                          <img className="Products__card-img-top" src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3YyXC9jcm9wcGVkXC8zNTgxXC9tYWluXC96b29tXC8xNTYwOTUxXzg2OTc4NDdlZGMxYTFkYTRkNWI0MjBmMGJmODRkYTE4LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc1MCwiaGVpZ2h0Ijo3NTAsImZpdCI6Imluc2lkZSJ9LCJ0b0Zvcm1hdCI6IndlYnAiLCJ3ZWJwIjp7InF1YWxpdHkiOjgwfX19?signature=3184d193bc65a277ee96adca24c4d8d2ef3d3f80ad1b6d8e0a042d86e5cc2953"/>
 
-                        <div className="Products__card-text">
+                      
                          <h5 className='Products__productId'>品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                          <p className='Products__article' >作者作者作者作者</p>
                          <p className="Products__price">$16900</p>
-                         </div>
                          </Link>
-                      </td>     
-            
-              
-                      <td className="Products__card-pic Products__card-pic-6 " >
-                                      
+                         </div>
+                      
+
+                         <div className="Products__img-id-wrap">              
                         <Link to="ProductsDetail">
                          
                         <img className="Products__card-img-top" src="https://cdn.singulart.com/artworks/v2/cropped/23911/main/zoom/1592667_3c62c3c91391f5615033b528f97ad634.jpeg" />
-                        <div className="Products__card-text">
+                        
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
                         </Link>
-                      </td>     
+                        </div>
+                       
+                     
                 
-                </tr> 
-                <tr className=" Products__other-product">  
-               
-                      <td className="Products__card-pic" >
+                        <div className="Products__img-id-wrap">
                       <Link to="ProductsDetail">
                         <img className="Products__card-img-top" src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3BpY3R1cmVzXC9jcm9wcGVkXC82OTNcLzY5MDFcL3pvb21cL3NlcmllXzY5MDFfOGJmOGNhNTJjYjkwYzQyYWMwMDBlNTMxNTNhMjZlYWIuanBlZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUwLCJoZWlnaHQiOjc1MCwiZml0IjoiaW5zaWRlIn0sInRvRm9ybWF0Ijoid2VicCIsIndlYnAiOnsicXVhbGl0eSI6ODB9fX0=?signature=18e0bbaeb9a2bcbbd3d127e530c475f3950d9560c78d52329415c0193159b38e"  />
-                        <div className="Products__card-text">
+                       
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
                         </Link>
-                      </td>
+                        </div>
+                       
+                     
            
            
-                      <td className="Products__card-pic" >
-                              
+                   
+                        <div className="Products__img-id-wrap">       
                         <Link to="ProductsDetail"> 
                         <img className="Products__card-img-top" src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3YyXC9jcm9wcGVkXC8xNjAwM1wvbWFpblwvem9vbVwvMTc2MTUwMV9kYmI0M2I5MGYwNGU0NGUzMzQwOGZkZWVmMTE2ZjQ0My5qcGVnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3NTAsImhlaWdodCI6NzUwLCJmaXQiOiJpbnNpZGUifSwidG9Gb3JtYXQiOiJ3ZWJwIiwid2VicCI6eyJxdWFsaXR5Ijo4MH19fQ==?signature=f62f7c40419c52992cc0f234f3e884557b64e56ea041109fe2bf577e552018b4" />
-                        <div className="Products__card-text">
+                       
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
+                       
                         </Link>
-                      </td> 
+                        </div>
               
                
-                      <td className="Products__card-pic Products__card-pic-9 " >                                    
+                        <div className="Products__img-id-wrap">                            
                         <Link to="ProductsDetail">
                         <img className="Products__card-img-top" src="https://pbs.twimg.com/media/Exfe8tnVIAMjjzu?format=jpg&name=large" />
-                        <div className="Products__card-text">
+                       
                         <h5 className='Products__productId' >品名品名品名品名品名品名品名品名品名品名品名品名</h5>
                         <p className='Products__article' >作者作者作者作者</p>
                         <p className="Products__price">$16900</p>
-                        </div>
+                     
                         </Link>
-                      </td>     
-                 
-                </tr> 
-                
-               
-                </table>
+                        </div>
+                        </div>
             </figure>
-                        <footer id="Products__footer">
+                        {/* <footer id="Products__footer">
                      
                         <div>
               <Pagination className="Products__page-item justify-content-center">
@@ -269,7 +259,7 @@ const Products = () => {
                 <Pagination.Last />
               </Pagination>
             </div>
-                        </footer>
+                        </footer> */}
           </section>
          
       </div>
