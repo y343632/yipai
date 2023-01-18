@@ -18,6 +18,16 @@ https://github.com/mui/material-ui/tree/v5.11.4
 
 <h1>後端</h1>
 
+建立一個全新的後端資料夾，拉進 VSCode 中。
+
+在 VSCode 中建立一個為 server.js 的檔案，做為伺服器用。
+
+初始化專案
+  
+  npm init
+  
+完成初步的專案建立。
+
 請先安裝以下套件
 
 1.為了快速搭建一個網站，需要 express
