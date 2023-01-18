@@ -48,20 +48,26 @@ const News = () => (
             <Link to="./ProductsDetail"> 
               <img className="News__card-img-top" src="https://ak-d.tripcdn.com/images/0352g12000a5wnpl3AE0E_C_1136_640_Q60.jpg?proc=source/trip;namelogo/d_40" />
               <h5 className='News__newsId' >米奇藝術展全球巡展--台北站</h5>
-              <p className='News__article' ><BiTimeFive/>2022/11/12（六）- 2023/02/28（二）</p>
-              <p className="News__text">$16900</p>
+              <p className='News__article' ><BiTimeFive/>2022-11-12 (六)- 2023-02-28 (二)</p>
+              <p className="News__text">"全台首展！近 30 位國際藝術家，多種米奇藝術創作，驚奇不斷！
+
+此次展覽所有藝術家將以米奇為題，結合不同風格、創作媒材及藝術創作，透過繪畫、書法、雕塑、編織、裝置等形式多樣的當代藝術作品，全新塑造、賦予家喻戶曉的老朋友－米奇多個嶄新面貌。
+
+
+首次亮相！Daniel Arsham、GD 權志龍、陳冠希原創米奇作品一次看！
+
+匯集全球頂尖潮流藝術家原創作品首度登台，將展出美國藝術家「 Daniel Arsham 」、韓國歌手、饒舌及詞曲作家「 G-Dragon 」、日本頗負盛名的時尚設計師及饒舌歌手「 Nigo 」、香港時尚巨星「 陳冠希 」、台灣裔美國畫家「 James Jean 」等多位在時尚潮流界佔有一席之地的藝術家們以「米奇」為主題，創作出屬於藝術家們的潮流米奇概念藝術作品！"</p>
               </Link>
               </div>
              
-           
 
      
               <div className="News__img-id-wrap">
-            <Link to="./ProductsDetail">     
+            <Link to="/">     
               <img className="News__card-img-top" src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/w_800/activities/t9kk4qqa6hepgtebwkml.webp" />
            
               <h5 className='News__newsId' >感知現場─建築×藝術跨界展</h5>
-              <p className='News__article' ><BiTimeFive/>2022/10/15 (六)~2023/2/12(日)</p>
+              <p className='News__article' ><BiTimeFive/>2022-10-15 (六)~2023-2-12(日)</p>
               <p className="News__text">"「感知」，是一種看不見卻真實存在並難以言喻的感受與察覺，超越慣常的文字語言與知識體系。
 
 本展邀請藝術家王德瑜與建築師林柏陽以忠泰美術館的空間為基礎，進行長期互動和對話，從藝術與建築兩種原本不同的思考角度與創作語彙，跨界合作，回應美術館空間本身，共同創造突破既定框架的新空間，邀請觀眾梭巡其中體驗與探索，企圖以此「現場」召喚出潛藏於每位觀眾最真實與純粹的感知。
@@ -75,11 +81,11 @@ const News = () => (
           
 
               <div className="News__img-id-wrap">
-            <Link to="ProductsDetail">
+            <Link to="/">
               <img className="News__card-img-top" src="https://d3d9mb8xdsbq52.cloudfront.net/s3/221230/123236tfc.jpg"  />
             
               <h5 className='News__newsId' >冬雨．遠山．近海―宜蘭當代女性藝術家</h5>
-              <p className='News__article' ><BiTimeFive/>2022.12.3-2023.4.9</p>
+              <p className='News__article' ><BiTimeFive/>2022-12-3-2023-4-9</p>
               <p className="News__text">「冬雨．遠山．近海―宜蘭當代女性藝術家」，以宜蘭的人文特色，好山好水，加上各個女性藝術家都對宜蘭有許多的淵源記憶和故事描述，將對故鄉的情懷轉化成對當代藝術的觸角，延伸更深廣的美學內涵，注入更多元的創新面貌，繼而眺望這片土地的過去、現在和未來。藝術家以她們敏銳的內心思索方式，運用各種不同媒材詮釋故鄉的人文記憶和感情對話，喚起對地方的濃厚情感。</p>
               </Link>
               </div>
@@ -88,12 +94,12 @@ const News = () => (
 
       
               <div className="News__img-id-wrap">
-             <Link to="ProductsDetail">
+             <Link to="/">
                <img className="News__card-img-top" src="https://s3.resource.opentix.life/upload/program/1661484208466q9AKB2ZlCN.jpeg"/>
 
             
                <h5 className='News__newsId'>想你到月球｜張雨生特展 FLY ME TO THE MOON & BACK</h5>
-               <p className='News__article' ><BiTimeFive/>2022/11/12（六）- 2023/02/28（二）</p>
+               <p className='News__article' ><BiTimeFive/>2022-11-12 (六)- 2023-02-28 (二)</p>
                <p className="News__text">"張雨生一生創作出許多膾炙人口的作品，音樂創作風格多變，有「音樂魔術師」之稱。
 第 28 屆金曲獎獲頒「特別貢獻獎」、被認為是台灣華語樂壇史上最優秀的歌手之一。
 藉由一場漫步太空的體驗，跟著太空人張雨生參與一場太空登月計畫。
@@ -104,7 +110,7 @@ const News = () => (
             
 
                <div className="News__img-id-wrap">              
-              <Link to="ProductsDetail">
+              <Link to="/">
                
               <img className="News__card-img-top" src="https://d2onjhd726mt7c.cloudfront.net/images/datas/000/097/142/zwoajptmgl20pqh7st01jtwm20nm6uyb_1400x800.jpg" />
               
@@ -128,17 +134,13 @@ const News = () => (
               <img className="News__card-img-top" src="https://res.klook.com/image/upload/c_fill,w_1160,h_474/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ztcdcpdfbsymxtnnx7cd.webp"  />
              
               <h5 className='News__newsId' >Lurking: a Wellsaid album release show</h5>
-              <p className='News__article' ><BiTimeFive/>2023/2/18日（六）</p>
+              <p className='News__article' ><BiTimeFive/>2023-2-18日 (六)</p>
               <p className="News__text">前陣子搞簽證，把護照拿出來，發現背面還貼著上一次出境演出的 stage pass：2020年12月31日在 The Wall 的跨年演出。想起那晚吃過咖哩，半路和朋友溜出去買啤酒，聊2021要做的事。</p>
               </Link>
               </div>
-             
-           
- 
- 
-         
-              <div className="v__img-id-wrap">       
-              <Link to="ProductsDetail"> 
+
+              <div className="News__img-id-wrap">       
+              <Link to="/"> 
               <img className="News__card-img-top" src="https://d2onjhd726mt7c.cloudfront.net/images/datas/000/097/566/e65f6ketqv2czywuvimixa43pfm2zq7y_1400x800.jpg" />
              
               <h5 className='News__newsId' >狂八〇 : 跨領域靈光出現的時代</h5>
@@ -155,7 +157,7 @@ const News = () => (
     
      
               <div className="News__img-id-wrap">                            
-              <Link to="ProductsDetail">
+              <Link to="/">
               <img className="News__card-img-top" src="https://d2onjhd726mt7c.cloudfront.net/images/datas/000/095/502/ob8p4pbcsg3009ght67rdmy7amx9fb9j_1400x800.jpg" />
              
               <h5 className='News__newsId' >minä perhonen/皆川明つづく</h5>
