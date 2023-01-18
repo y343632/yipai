@@ -31,7 +31,7 @@ https://github.com/mui/material-ui/tree/v5.11.4
 請先安裝以下套件
 
 1.為了快速搭建一個網站，需要 express
-      npm i express
+       npm i express
   
 2.為了讓不同 port 中的程式可以讀到跨 port 的內容(跨網域)，需要 cors
       npm i cors
