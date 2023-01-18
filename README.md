@@ -48,4 +48,7 @@ https://github.com/mui/material-ui/tree/v5.11.4
 
       npm i nodemon
   
+5.連接資料庫之前先建立好evn檔存放資料庫使用者帳密
+
+    npm i dotenv
   
