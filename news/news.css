@@ -22,7 +22,7 @@
     grid-template-areas:
                          "News__nav "
                          "News__main ";
-    grid-template-rows: 100px 3000px 50px; /* 3.各區域 寬高設置 */
+    grid-template-rows: 100px 1500px 50px; /* 3.各區域 寬高設置 */
     grid-template-columns:  1fr ;
   }
   #News__section > #News__nav {
