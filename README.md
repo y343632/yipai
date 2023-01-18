@@ -17,6 +17,7 @@ https://mui.com/material-ui/react-slider/
 https://github.com/mui/material-ui/tree/v5.11.4
 
 <h1>後端</h1>
+
 請先安裝以下套件
 
 1.為了快速搭建一個網站，需要 express
@@ -26,8 +27,8 @@ https://github.com/mui/material-ui/tree/v5.11.4
   npm i cors
   
   
-3.為了讀取 mySQL，需要 mysql
-  npm i mysql
+3.為了讀取 mySQL，需要 mysql2
+  npm i mysql2
   
   
 4.想要讓 index.js 只要一修改，伺服器就自動 reload，需要中介軟體(middleware)，nodemon
