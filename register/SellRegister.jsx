@@ -1,5 +1,5 @@
 import React from 'react';
-import './register.css';
+import './sellregister.css';
 
 import { Link } from "react-router-dom";
 import HeadImg from "../HeadImg";
@@ -7,41 +7,41 @@ import { FaUserCircle } from 'react-icons/fa';
 import { height } from '@mui/system';
 
 
-const Register = () => (
+const SellRegister = () => (
   <>
-   <div id='login'>
-            <div className='_register_BG'>
-                <div className='_register_flex _register_buyerbox'>
-                    <div className='_register_registerIcon d-flex'>
+   <div id='SellRegister'>
+            <div className='_SellRegister_BG'>
+                <div className='_SellRegister_flex _SellRegister_buyerbox'>
+                    <div className='_SellRegister_SellRegisterIcon d-flex'>
                     <FaUserCircle style={{width: "50px" ,height:"50px"}}/>
-                    <h2 className='_register_registerIcon＿text'>買家註冊</h2>
+                    <h2 className='_SellRegister_SellRegisterIcon＿text'>賣家註冊</h2>
                     </div>
-                    <form method='POST' action='' className='_register_flex d-inline'>
+                    <form method='POST' action='' className='_SellRegister_flex d-inline'>
                         <input
                             type='text'
-                            className='_register_inputBox'
+                            className='_SellRegister_inputBox'
                             name='accountNumber'
                             placeholder=' 姓名'
                         />
                         <input
                             type='text'
-                            className='_register_inputBox2'
+                            className='_SellRegister_inputBox2'
                             name='password'
                             placeholder=' 帳號'
                         />
                         <input
                             type='password'
-                            className='_register_inputBox2'
+                            className='_SellRegister_inputBox2'
                             name='password'
                             placeholder=' 密碼'
                         />
                         <input
                             type='password'
-                            className='_register_inputBox2'
+                            className='_SellRegister_inputBox2'
                             name='password'
                             placeholder=' 再輸入一次密碼'
                         />
-                        <button type='submit' className='_register_btn'>
+                        <button type='submit' className='_SellRegister_btn'>
                             送出
                         </button>
                     </form>
@@ -51,4 +51,4 @@ const Register = () => (
   </>
 );
 
-export default Register;
+export default SellRegister;
