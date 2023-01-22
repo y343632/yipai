@@ -14,6 +14,8 @@ import { margin } from '@mui/system'
 import axios from 'axios'
 import { useEffect } from 'react'
 
+
+
 const Products = () => {
   const [product, setProduct] = useState([])
 
@@ -192,6 +194,7 @@ const Products = () => {
                         src={product.img_file}
                       />
                       <h5 className="Products__productId">{product.name}</h5>
+                      <p className="Products__material mb-0">{product.material}<span className='ms-2'>{product.creation_year}</span></p>
                       <p className="Products__article">{product.artist}</p>
                       <h5 className="Products__price">${product.price}</h5>
                     </Link>

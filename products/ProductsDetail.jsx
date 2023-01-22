@@ -13,8 +13,10 @@ import { useParams } from 'react-router-dom'
 import { RiDatabase2Fill } from 'react-icons/ri'
 
 const ProductsDetail = () => {
+  const [error, setError] = useState(null);
   const { productId } = useParams()
   const [data, setdata] = useState([])
+  
 
   useEffect(() => {
     // console.log('第二個參數是空陣列')
@@ -80,7 +82,9 @@ const ProductsDetail = () => {
                     </tbody>
                   </table>
                   <div className="ProductsDetail_addCar ">
+                    <Link to = "" >
                     <button className="ProductsDetail_addCar-button d-inline">加入購物車</button>
+                    </Link>
                   </div>
                 </div>
               </hgroup>
