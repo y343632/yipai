@@ -24,7 +24,7 @@ const Register = () => (
                             placeholder=' 姓名'
                         />
                         <input
-                            type='password'
+                            type='text'
                             className='_register_inputBox2'
                             name='password'
                             placeholder=' 帳號'
