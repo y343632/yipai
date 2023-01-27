@@ -1,0 +1,68 @@
+:root{
+    --text-h1:44px;
+    --text-h2:20px;
+}
+._SignUp_login-button{
+margin-top: 150px;
+}
+._SignUp_BG{
+    background-image: url(./image/LoginBG.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: auto;
+    height: 100vh;
+    z-index: 0;
+}
+._SignUp_h3{
+    font-size: var(--text-h1);
+}
+._SignUp_flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+._SignUp_flex-ab{
+    display: flex;
+    position: absolute;
+    left: calc(50vw - ((44px * 4) + 12em));
+    top:30vh;
+    z-index: 3;
+}
+._SignUp_text-center{
+    text-align: center;
+}
+._SignUp_buyerIcon{
+background-image: url(./image/buyerIcon.svg);
+background-repeat: no-repeat;
+width: 100px;
+height: 100px;
+background-position: center center;
+}
+._SignUp_sellerIcon{
+background-image: url(./image/sellerIcon.svg);
+background-repeat: no-repeat;
+width: 100px;
+height: 100px;
+background-position: center center;
+
+}
+._SignUp_box{
+    padding: 5em;
+    background-color:var(--color-bg);
+}
+._SignUp_box2{
+    padding: 5em;
+    background-color:var(--color-text);
+}
+._SignUp_box3{
+    padding: 1em;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    left: calc(50vw - ((44px * 4) ));
+    top:80vh;
+
+}
+._SignUp_box3_icon{
+    font-weight: bold;
+}
