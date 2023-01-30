@@ -90,19 +90,48 @@ app.get('/product/:productId', async (req, res, next) => {
           res.json(data);
         });
     
-  //最新消息 頁面
+  //最新消息news 頁面
         
     app.get('/news', async (req, res, next) => {
             console.log('這裡是 /news');
-            let [data] = await pool.query('SELECT * FROM news');
-            res.json(data);
-          });
-          
+            // 分頁
+            // 從前端拿到目前是要第幾頁
+            // 通常會放在 query string -> req.query.page
+            const page= req.query.page || 1;
+
+    /// 總筆數？
+    let [results] = await pool.execute('SELECT COUNT(*) AS total FROM news');
+    //console.log('GET /news -> count:', results[0].total);
+    const total = results[0].total;
+
+    // 總共有幾頁
+    const perPage = 6; // 一頁有6筆
+    const totalPage = Math.ceil(total / perPage);
+
+    // 計算 offset, limit (一頁有幾筆)
+    const limit = perPage;
+    const offset = perPage * (page - 1);
+
+  // 根據 offset, limit 去取得資料
+    let [data] = await pool.execute('SELECT * FROM news ORDER BY news_id LIMIT ? OFFSET ?',  [limit, offset]);
+  
+    // 把資料回覆給前端
+    res.json({
+     pagination: {
+     total,
+     perPage,
+     totalPage,
+     page,
+    },
+    data,
+   });    
+  });
+       
     app.get('/news/:newsId', async (req, res, next) => {
-            console.log('/news/:newsId => ', req.params.spaceId);
-            let [data] = await pool.query('SELECT * FROM news WHERE news_id=? ', [req.params.newsId]);
-              res.json(data);
-            });
+    console.log('/news/:newsId => ', req.params.spaceId);
+    let [data] = await pool.query('SELECT * FROM news WHERE news_id=? ', [req.params.newsId]);
+      res.json(data);
+    });
   
    //空間 頁面
 
@@ -147,7 +176,6 @@ app.get('/product/:productId', async (req, res, next) => {
                 res.json(data);
               });    
   
-
 app.listen(3001, () => {
     console.log('Server running at port 3001');
   });
