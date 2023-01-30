@@ -7,6 +7,9 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SellLogin from './containers/users/Sell/SellerLogin';
 
+/* ScrollToTop是為了讓連到另一頁內容時，頁面回到最上方 */
+import ScrollToTop from './components/ScrollToTop'
+
 
 function App() {
   return(
@@ -17,10 +20,13 @@ function App() {
         
         {/* <Header /> */}
         <MyContent>
+        
           <Routes>
             <Route index element={<Carousel />} /> 
             {/* <Route index element={<Header />} /> */}
           </Routes>
+          {/* ScrollToTop是為了讓連到另一頁內容時，頁面回到最上方 */}
+          <ScrollToTop>
           <Routes>
             <Route path='/' element={<Blog />} />
             <Route path='space' element={<Space />} />
@@ -43,6 +49,7 @@ function App() {
             <Route path="/news/:newsId" element={<NewsId />} />
             <Route path="news:currentPage" element={<News />} />
           </Routes>  
+          </ScrollToTop>
         </MyContent>
       </div>
         <Brand />
