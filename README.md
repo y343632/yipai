@@ -1,6 +1,12 @@
 <h1>0130 更新</h1>
 
-加入了換頁後自動將頁面卷至上方的套件
+加入了換頁後自動將頁面卷至上方的套件react-scroll-to-top
+
+1.npm i react-scroll-to-top
+
+2.加入在app.js檔(已上傳檔案請參考)
+
+3.scroll-to-top元件已加入src\components 資料夾
 
 <h1>更新</h1>
 
