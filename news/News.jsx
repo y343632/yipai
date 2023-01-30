@@ -41,7 +41,7 @@ const News = () => {
               </Link>
             </div>
             <div className="col-7">
-              <Button className="News__button" variant="dark">
+              <Button className="News__button mt-2" variant="dark">
                 由新至舊
                 <TbArrowsSort />
               </Button>
