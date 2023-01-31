@@ -141,34 +141,29 @@ app.get('/product/:productId', async (req, res, next) => {
     // 分頁
     // 從前端拿到目前是要第幾頁
     // 通常會放在 query string -> req.query.page
-     const page= req.query.page || 1;
+     //const page= req.query.page || 1;
 
     /// 總筆數？
-     let [results] = await pool.execute('SELECT COUNT(*) AS total FROM space');
-     console.log('GET /space -> count:', results[0].total);
-     const total = results[0].total;
+    //  let [results] = await pool.execute('SELECT COUNT(*) AS total FROM space');
+    //  console.log('GET /space -> count:', results[0].total);
+    //  const total = results[0].total;
 
    // 總共有幾頁
-     const perPage = 6; // 一頁有6筆
-     const totalPage = Math.ceil(total / perPage);
+    //  const perPage = 6; // 一頁有6筆
+    //  const totalPage = Math.ceil(total / perPage);
 
    // 計算 offset, limit (一頁有幾筆)
-     const limit = perPage;
-     const offset = perPage * (page - 1);
+    //  const limit = perPage;
+    //  const offset = perPage * (page - 1);
 
    // 根據 offset, limit 去取得資料
-     let [data] = await pool.execute('SELECT * FROM space ORDER BY space_id LIMIT ? OFFSET ?',  [limit, offset]);
+   let [data] = await pool.query('SELECT * FROM space');
+
    
      // 把資料回覆給前端
-     res.json({
-      pagination: {
-      total,
-      perPage,
-      totalPage,
-      page,
-     },
+     res.json(
      data,
-    });
+    );
 });        
     app.get('/space/:spaceId', async (req, res, next) => {
               console.log('/space/:spaceId => ', req.params.spaceId);
