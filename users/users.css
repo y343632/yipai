@@ -66,3 +66,9 @@ background-position: center center;
 ._users_box3_icon{
     font-weight: bold;
 }
+
+@media screen and (max-width: 414px){
+    ._users_flex-ab{
+        flex-direction: column;
+    }
+}
