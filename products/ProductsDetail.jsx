@@ -99,45 +99,47 @@ const ProductsDetail = () => {
               <hgroup id="ProductsDetail_hgroup">
                 <div
                   key={productsDetail.id}
-                  className="ProductsDetail_nav-wrapper d-inline"
-                >
+                  className="ProductsDetail_nav-wrapper d-inline">
                   <div className="ProductsDetail_d-inline">
                     <h2>{productsDetail.name}</h2>
-                    <h4 className="ProductsDetail_card-text">BILD</h4>
-                    <h4>荷蘭</h4>
+                    <h4 className="ProductsDetail_card-text">{productsDetail.artist}</h4>
                   </div>
 
                   <table className="table table-borderless">
                     <thead>
                       <tr>
-                        <th scope="col">媒材</th>
-                        <th scope="col">風格</th>
-                        <th scope="col">年份</th>
+                        <th scope="col"><h4>媒材</h4></th>
+                        {/* <th scope="col">風格</th> */}
+                        <th scope="col"><h4>年份</h4></th>
+                        <th scope="col"><h4>色系</h4></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>{productsDetail.material}</td>
-                        <td>印象派</td>
+                        {/* <td>印象派</td> */}
                         <td>{productsDetail.creation_year}</td>
+                        <td>{productsDetail.work_hue}</td>
+                        
                       </tr>
                     </tbody>
                     <thead>
                       <tr>
-                        <th scope="col">尺寸</th>
-                        <th scope="col">色系</th>
+                        <th scope="col"><h4>尺寸</h4></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>
-                          <p>寬</p>
-                          <p>高</p>
-                        </td>
-                        <td>{productsDetail.work_hue}</td>
+                        
+                          <td>寬</td>
+                          <td>高</td>
+                       
                       </tr>
                     </tbody>
+                  
                   </table>
+                  <p>價格</p>
+                  <h1  className="ProductsDetail_price_item d-flex">${productsDetail.price}</h1>
                   <div className="ProductsDetail_addCar ">
                     <button
                       className="ProductsDetail_addCar-button d-inline"
