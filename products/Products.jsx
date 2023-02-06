@@ -5,14 +5,14 @@ import './products.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-//篩選bar
+//篩選區域
 import ProductsSize_Slider from './ProductsSize_Slider'
 import ProductsPrice_Slider from './ProductsPrice_Slider'
 import ProductsColorSelector from './ProductsColorSelector'
 
 import { BiRectangle } from 'react-icons/bi'
 import { TbRectangleVertical, TbRectangle } from 'react-icons/tb'
-import axios from 'axios'
+import axios from 'axios';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ProductsPagination from './ProductsPagination'
@@ -273,22 +273,23 @@ function Products  ()  {
                   <tr>
                     <td>
                     {selectedWork_hue}
-                    {['Red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'white' , 'gray'].map(
+                    {['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'White' , 'Gray'].map(
                     (work_hue) => (
-                      <ProductsColorSelector
-                          className="Products＿slider-color-item Products＿slider-color-item-red"
-                          value={'Red'}
-                          onClick={() => handleClick(work_hue, 'work_hue') }
-                      />
-                    ))}
-                    
-                    </td>
-                    {/* <td>
-                      <div className="Products＿slider-color-item Products＿slider-color-item-ori"
-                      value={'Orange'}
+                      <div className="Products＿slider-color-item Products＿slider-color-item-red"
+                      value={work_hue}
                       onClick={() => handleClick(work_hue, 'work_hue') }
                       ></div>
+                        )
+              )}
                     </td>
+                    
+                    {/* <td>
+                      <div className="Products＿slider-color-item Products＿slider-color-item-ori"
+                      value={'work_hue'}
+                      onClick={() => handleClick(work_hue, 'work_hue') }
+                      ></div>
+                    </td> */}
+                    {/* 
                     <td>
                       <div className="Products＿slider-color-item Products＿slider-color-item-yel"
                       value={'Yellow'}
@@ -329,8 +330,7 @@ function Products  ()  {
                   </tr>
                 </table>
               </tr>
-                
-             
+              
              <h6 className="Products＿size-h5">形狀</h6>
               <tr className="Products＿slider-shape">
                 <BiRectangle style={{ width: '40px', height: '40px' }} />
