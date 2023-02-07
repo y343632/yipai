@@ -1,22 +1,26 @@
 // import React from 'react'
-import { RiMenu3Line, RiCloseLine, RiCreativeCommonsZeroLine } from 'react-icons/ri'
 import { Link   } from 'react-router-dom'
 import './products.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Button from 'react-bootstrap/Button';
+import ProductsPagination from './ProductsPagination'
 
 //篩選區域
 import ProductsSize_Slider from './ProductsSize_Slider'
 import ProductsPrice_Slider from './ProductsPrice_Slider'
-import ProductsColorSelector from './ProductsColorSelector'
 
+//icon
 import { BiRectangle } from 'react-icons/bi'
 import { TbRectangleVertical, TbRectangle } from 'react-icons/tb'
+import { RiArrowUpSLine,RiArrowDownSLine } from 'react-icons/ri'
+import { RiMenu3Line, RiCloseLine, RiCreativeCommonsZeroLine } from 'react-icons/ri'
+
+//連接資料庫
 import axios from 'axios';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import ProductsPagination from './ProductsPagination'
-import { RiArrowUpSLine,RiArrowDownSLine } from 'react-icons/ri'
+
+
 
 function Products  ()  {
   window.scrollTo(0, 800);
@@ -26,15 +30,16 @@ function Products  ()  {
   //select顯示在頁面的值
   const [selectedMaterial, setSelectedMaterial] = useState('')
   const [selectedCreation_year, setSelectedCreation_year] = useState('')
+  const [selectedProduct_style, setSelectedProduct_style] = useState('')
   const [selectedWork_hue, setSelectedWork_hue] = useState('')
 
   const [selectedPrice, setSelectedPrice] = useState('')
 
   // radio
   const [priceRange, setPriceRange] = useState('所有')
+  const [Product_style, setProduct_styleRange] = useState('所有')
   const priceRangeTypes = ['所有', '2000-9999', '10000-19999', '20000-29999', '30000-49999','100000']
  
-
   
     //清除鍵
     const handleClear = () => {
@@ -43,6 +48,8 @@ function Products  ()  {
       console.log(originalProduct)
       //清空媒材
       setSelectedMaterial('')
+      //清空風格
+      setSelectedProduct_style('')
       //清空年份
       setSelectedCreation_year('')
       //清空顏色
@@ -91,6 +98,16 @@ function Products  ()  {
       console.log(filtered)
       console.log('媒材選項：', value)
     }
+    if (type === 'product_style') {
+      // 處理風格選項
+      const product_style = value
+      filtered=filtered.filter((product)=>product.product_style===product_style)
+      setProducts(filtered) // 設置回初始值
+      // console.log('初始值：', originalProduct);
+      setSelectedProduct_style(value)
+      console.log(filtered)
+      console.log('風格選項：', value)
+    }
       // 處理依照年份排序
     if (type === 'creation_year') {
         const sortOrder = value
@@ -135,7 +152,10 @@ function Products  ()  {
       console.log('顏色選項：', newSelectedWork_hue)
     }
   }
-
+  const handleProduct_styleRange = (value, type) => {
+    
+    let Productsfilter = [...originalProduct]
+  }
   // 處理價格區間選項
   const handlePriceRange = (value, type) => {
     
@@ -190,8 +210,6 @@ function Products  ()  {
     // return Productsfilter
   }
 
-  
-
   return (
     <>
       <header id="Products__header">
@@ -206,7 +224,6 @@ function Products  ()  {
               <th>
                 <h3 className="Products＿size-h3">藝術品分類</h3>
               </th>
-              
               <tr>
               <Link className='ml-4' variant="dark" onClick={handleClear}>清除選取</Link>
                 <Dropdown>
@@ -254,86 +271,120 @@ function Products  ()  {
                     依風格
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">所有(2000)</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">印象派(20)</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">幾何(20)</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">復古(20)</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">超現實(20)</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">水彩(20)</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">
-                      表現主義(20)
+                    <Dropdown.Item value="所有" 
+                     onClick={() => handleProduct_styleRange('所有', 'product_style')}>所有</Dropdown.Item>
+                    <Dropdown.Item value="印象" onClick={() => handleClick('印象', 'product_style')} >印象</Dropdown.Item>
+                    <Dropdown.Item value="幾何" onClick={() => handleClick('幾何', 'product_style')}>幾何</Dropdown.Item>
+                    <Dropdown.Item value="復古" onClick={() => handleClick('復古', 'product_style')} >復古</Dropdown.Item>
+                    <Dropdown.Item value="超現實" onClick={() => handleClick('超現實', 'product_style')}  >超現實</Dropdown.Item>
+                    <Dropdown.Item value="水彩" onClick={() => handleClick('水彩', 'product_style')}>水彩</Dropdown.Item>
+                    <Dropdown.Item value="表現主義" onClick={() => handleClick('表現主義', 'product_style')} >
+                      表現主義
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </tr>
-              <h6 className="Products＿size-h5">依色系</h6>
-              
+              <h6 className="Products＿size-h5">依色系</h6> 
               <tr className="Products＿slider-color">
                 <table>
                   <tr>
-                    <td>
-                    {selectedWork_hue}
-                    {['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'White' , 'Gray'].map(
+                  {['Red'].map(
                     (work_hue) => (
+                    <td>
                       <div className="Products＿slider-color-item Products＿slider-color-item-red"
                       value={work_hue}
                       onClick={() => handleClick(work_hue, 'work_hue') }
                       ></div>
-                        )
-              )}
                     </td>
-                    
-                    {/* <td>
+                       )
+                       )}
+                    {['Orange'].map(
+                    (work_hue) => (
+                    <td>
                       <div className="Products＿slider-color-item Products＿slider-color-item-ori"
                       value={'work_hue'}
                       onClick={() => handleClick(work_hue, 'work_hue') }
                       ></div>
-                    </td> */}
-                    {/* 
+                    </td> 
+                    )
+                    )}
+                    {['Yellow'].map(
+                    (work_hue) => (
                     <td>
                       <div className="Products＿slider-color-item Products＿slider-color-item-yel"
                       value={'Yellow'}
                       onClick={() => handleClick(work_hue, 'work_hue') }
                       ></div>
                     </td>
+                     )
+                    )}
+                    {['Green'].map(
+                    (work_hue) => (
                     <td>
                       <div className="Products＿slider-color-item Products＿slider-color-item-gre"
-                      value={work_hue}
-                      onClick={() => handleClick('Green', 'work_hue') }
+                      value={'Green'}
+                      onClick={() => handleClick(work_hue, 'work_hue') }
                       ></div>
                     </td>
+                      )
+                     )}
                   </tr>
                   <tr>
+                  {['Blue'].map(
+                    (work_hue) => (
                     <td>
                       <div className="Products＿slider-color-item Products＿slider-color-item-blu"
-                      value={work_hue}
-                      onClick={() => handleClick('Blue', 'work_hue') }
+                      value={'Blue'}
+                      onClick={() => handleClick(work_hue, 'work_hue') }
                       ></div>
                     </td>
+                     )
+                     )}
+                    {['Purple'].map(
+                    (work_hue) => (
                     <td>
-                      <div className="Products＿slider-color-item Products＿slider-color-item-pur" value={work_hue} onClick={() => handleClick('Purple', 'work_hue') }></div>
+                      <div className="Products＿slider-color-item Products＿slider-color-item-pur" value={'Purple'} onClick={() => handleClick(work_hue, 'work_hue') }></div>
                     </td>
+                     )
+                     )}
+                     {['Brown'].map(
+                    (work_hue) => (
                     <td>
-                      <div className="Products＿slider-color-item Products＿slider-color-item-bro" value={work_hue} onClick={() => handleClick('Brown', 'work_hue') }></div>
+                      <div className="Products＿slider-color-item Products＿slider-color-item-bro" value={'Brown'} onClick={() => handleClick(work_hue, 'work_hue') }></div>
                     </td>
+                    )
+                    )}
+                    {['White'].map(
+                    (work_hue) => (
                     <td>
-                      <div className="Products＿slider-color-item Products＿slider-color-item-whi" value={work_hue} onClick={() => handleClick('White', 'work_hue') }></div>
+                      <div className="Products＿slider-color-item Products＿slider-color-item-whi" value={'White'} onClick={() => handleClick(work_hue, 'work_hue') }></div>
                     </td>
+                    )
+                    )}
                   </tr>
                   <tr>
+                  {['Gray'].map(
+                    (work_hue) => (
                     <td>
-                      <div className="Products＿slider-color-item Products＿slider-color-item-gra" value={work_hue} onClick={() => handleClick('Gray', 'work_hue') }></div>
+                      <div className="Products＿slider-color-item Products＿slider-color-item-gra" value={'Gray'} onClick={() => handleClick(work_hue, 'work_hue') }></div>
                     </td>
+                    )
+                    )}
+                  {['Black'].map(
+                  (work_hue) => (
                     <td>
-                      <div className="Products＿slider-color-item Products＿slider-color-item-bla" value={work_hue} onClick={() => handleClick('Black', 'work_hue') } ></div>
-                    </td> */}
+                      <div className="Products＿slider-color-item Products＿slider-color-item-bla" value={'Black'} onClick={() => handleClick(work_hue, 'work_hue') } ></div>
+                    </td> 
+                    )
+                    )}
                   </tr>
                 </table>
+              
               </tr>
               
              <h6 className="Products＿size-h5">形狀</h6>
               <tr className="Products＿slider-shape">
-                <BiRectangle style={{ width: '40px', height: '40px' }} />
+                <BiRectangle style={{ width: '50px', height: '40px' }} />
                 <TbRectangleVertical
                   style={{ width: '40px', height: '40px' }}
                 />
@@ -349,13 +400,7 @@ function Products  ()  {
                 <ProductsSize_Slider></ProductsSize_Slider>
               </tr>
               <h5 className="Products＿size-h5">金額篩選</h5>
-              {/* <tr className="Products＿slider-price">
-                <ProductsPrice_Slider
-                priceRangeTypes={priceRangeTypes}
-                priceRange={priceRange}
-                setPriceRange={setPriceRange}
-                ></ProductsPrice_Slider>
-              </tr> */}
+         
               <Dropdown>
                   <Dropdown.Toggle
                     variant="--color-bg "
@@ -408,7 +453,7 @@ function Products  ()  {
               <div className="Products＿link-bar ">
                 <p className="Products＿link d-flex">
                   <Link to="/">首頁▶</Link>
-                  <Link onClick={handleClear}>所有藝術品▶ {selectedMaterial}</Link>
+                  <Link onClick={handleClear}>所有藝術品▶{selectedMaterial} ▶ {selectedWork_hue}</Link>
                 </p>
            <Dropdown>
                   <Dropdown.Toggle
