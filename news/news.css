@@ -89,8 +89,8 @@ display: -webkit-box;
     height: 100%;
     grid-template-areas:
                          "News__nav "
-                         "News__main ";
-    grid-template-rows: 30px 2200px 50px; /* 3.各區域 寬高設置 */
+                         "News__main";
+    grid-template-rows: 30px 3000px 80px; /* 3.各區域 寬高設置 */
     grid-template-columns:  1fr ;
   }
   

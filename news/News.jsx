@@ -12,7 +12,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 
 function News  ()  {
-  window.scrollTo(0, 0);
+  window.scrollTo(0, 800);
   // 為了處理網址
   let navigate = useNavigate();
   const { currentPage } = useParams();
@@ -68,34 +68,6 @@ function News  ()  {
       );
     }
   
-    // 顯示頁碼
-    // for (let i = 1; i <= 5; i++) {
-    //   pages.push(
-    //     <li
-    //       style={{
-    //         display: 'inline-block',
-    //         margin: '2px',
-    //         backgroundColor: 'black',
-    //         borderColor: page === i ? '#00d1b2' : '#dbdbdb',
-    //         color: page === i ? '#fff' : '#363636',
-    //         borderWidth: '1px',
-    //         width: '28px',
-    //         height: '28px',
-    //         borderRadius: '3px',
-    //         textAlign: 'center',
-    //       }}
-    //       key={i}
-    //       onClick={(e) => {
-    //         setPage(i);
-    //         navigate(`/news?page=${i}`);
-    //       }}
-    //     >
-    //       {i}
-    //     </li>
-    //   );
-    // }
-  
-    // 顯示「下一頁」
     if (page < totalPage) {
       pages.push(
         <RiArrowDownSLine
