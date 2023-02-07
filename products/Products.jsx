@@ -31,9 +31,18 @@ function Products  ()  {
   const [selectedMaterial, setSelectedMaterial] = useState('')
   const [selectedCreation_year, setSelectedCreation_year] = useState('')
   const [selectedProduct_style, setSelectedProduct_style] = useState('')
+  const [selectedWidth, setSelectedWidth] = useState('')
   const [selectedWork_hue, setSelectedWork_hue] = useState('')
+  const [selectedHegiht, setSelectedHegiht] = useState('')
 
+  
   const [selectedPrice, setSelectedPrice] = useState('')
+
+  // Width
+  const [widthRange, setWidthRange] = useState('所有')
+  
+  const widthRangeTypes = ['所有', '50', '100', '300', '400',]
+  const hegihtRangeTypes = ['所有', '50', '100', '300', '400',]
 
   // radio
   const [priceRange, setPriceRange] = useState('所有')
@@ -54,10 +63,15 @@ function Products  ()  {
       setSelectedCreation_year('')
       //清空顏色
       setSelectedWork_hue([])
+      //清空Width
+      setSelectedWidth([])
+      //清空Hegiht
+      setSelectedHegiht([])
       //清空價格
       setSelectedPrice([])
   
     }
+
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostPerPage] = useState(13)
     const lastPostIndex = currentPage * postsPerPage
@@ -156,6 +170,79 @@ function Products  ()  {
     
     let Productsfilter = [...originalProduct]
   }
+
+// 處理Hegiht區間選項
+const handleHegihtRange = (value, type) => {
+    
+  let Productsfilter = [...originalProduct]
+ 
+    switch (value) {
+    case '50':
+      Productsfilter = Productsfilter.filter((product) => {
+        return  product.hegiht >= 50 && product.hegiht <= 99
+      })
+    console.log(Productsfilter)
+    console.log('Hegiht：', value)
+      break
+    case '100':
+      Productsfilter = Productsfilter.filter((product) => {
+        return product.hegiht >= 100 && product.hegiht <= 299
+      })
+      break
+    case '300':
+      Productsfilter = Productsfilter.filter((product) => {
+        return product.hegiht >= 300 && product.hegiht <= 399
+      })
+      break  
+    case '400':
+      Productsfilter = Productsfilter.filter((product) => {
+        return product.hegiht >= 400 
+        })
+      break  
+    // 指所有的產品都出現
+     default:
+      break
+  }
+  setProducts(Productsfilter);
+  // return Productsfilter
+}
+
+// 處理Width區間選項
+const handleWidthRange = (value, type) => {
+    
+  let Productsfilter = [...originalProduct]
+ 
+    switch (value) {
+    case '50':
+      Productsfilter = Productsfilter.filter((product) => {
+        return  product.width >= 50 && product.width <= 99
+      })
+    console.log(Productsfilter)
+    console.log('Width：', value)
+      break
+    case '100':
+      Productsfilter = Productsfilter.filter((product) => {
+        return product.width >= 100 && product.width <= 299
+      })
+      break
+    case '300':
+      Productsfilter = Productsfilter.filter((product) => {
+        return product.width >= 300 && product.width <= 399
+      })
+      break  
+    case '400':
+      Productsfilter = Productsfilter.filter((product) => {
+        return product.width >= 400 
+        })
+      break  
+    // 指所有的產品都出現
+     default:
+      break
+  }
+  setProducts(Productsfilter);
+  // return Productsfilter
+}
+
   // 處理價格區間選項
   const handlePriceRange = (value, type) => {
     
@@ -225,7 +312,7 @@ function Products  ()  {
                 <h3 className="Products＿size-h3">藝術品分類</h3>
               </th>
               <tr>
-              <Link className='ml-4' variant="dark" onClick={handleClear}>清除選取</Link>
+              <Link className='ms-5' variant="dark" onClick={handleClear}>清除選取</Link>
                 <Dropdown>
                   <Dropdown.Toggle
                     variant="--color-bg "
@@ -391,14 +478,76 @@ function Products  ()  {
                 <TbRectangle style={{ width: '40px', height: '40px' }} />
               </tr> 
               <h5 className="Products＿size-h5">依尺寸(CM)</h5>
-              <h5 className="Products＿slider-color-size-h6">長邊</h5>
-              <tr className="Products＿slider-size">
-                <ProductsSize_Slider></ProductsSize_Slider>
-              </tr>
-              <h5 className="Products＿slider-color-size-h6">短邊</h5>
-              <tr className="Products＿slider-size">
-                <ProductsSize_Slider></ProductsSize_Slider>
-              </tr>
+              <h5 className="Products＿slider-color-size-h6" onClick={handleClear}>長邊{selectedWidth}</h5>
+
+              <Dropdown>
+                  <Dropdown.Toggle
+                    variant="--color-bg "
+                    style={{ border: 'none' }}
+                    id="dropdown-basic"
+                    className="ms-5"
+                  >
+                    所有
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                  <Dropdown.Item value="所有"
+                  onClick={() => handleWidthRange('所有', 'width')}
+                  >
+                  所有
+                  </Dropdown.Item>
+                    <Dropdown.Item value="50"
+                  onClick={() => handleWidthRange('50', 'width')}
+                  >
+                  ≤50≤
+                  </Dropdown.Item>
+                    <Dropdown.Item value="100"
+                  onClick={() => handleWidthRange('100', 'width') }
+                  >
+                  ≤100≤</Dropdown.Item>
+                    <Dropdown.Item value="300"
+                  onClick={() => handleWidthRange('300', 'width')}
+                  >
+                  ≤300≤</Dropdown.Item>
+                    <Dropdown.Item value="400"
+                  onClick={() => handleWidthRange('400', 'width')}
+                  >≤400</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown> 
+              <h5 className="Products＿slider-color-size-h6" onClick={handleClear}>短邊{selectedHegiht}</h5>
+              <Dropdown>
+                  <Dropdown.Toggle
+                    variant="--color-bg "
+                    style={{ border: 'none' }}
+                    id="dropdown-basic"
+                    className="ms-5"
+                  >
+                    所有
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                  <Dropdown.Item value="所有"
+                  onClick={() => handleHegihtRange('所有', 'hegiht')}
+                  >
+                  所有
+                  </Dropdown.Item>
+                    <Dropdown.Item value="50"
+                  onClick={() => handleHegihtRange('50', 'hegiht')}
+                  >
+                  ≤50≤
+                  </Dropdown.Item>
+                    <Dropdown.Item value="100"
+                  onClick={() => handleHegihtRange('100', 'hegiht') }
+                  >
+                  ≤100≤</Dropdown.Item>
+                    <Dropdown.Item value="300"
+                  onClick={() => handleHegihtRange('300', 'hegiht')}
+                  >
+                  ≤300≤</Dropdown.Item>
+                    <Dropdown.Item value="400"
+                  onClick={() => handleHegihtRange('400', 'width')}
+                  >≤400</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+        
               <h5 className="Products＿size-h5">金額篩選</h5>
          
               <Dropdown>
@@ -407,7 +556,6 @@ function Products  ()  {
                     style={{ border: 'none' }}
                     id="dropdown-basic"
                     className="ms-5"
-                    
                   >
                     所有
                   </Dropdown.Toggle>
@@ -453,7 +601,7 @@ function Products  ()  {
               <div className="Products＿link-bar ">
                 <p className="Products＿link d-flex">
                   <Link to="/">首頁▶</Link>
-                  <Link onClick={handleClear}>所有藝術品▶{selectedMaterial} ▶ {selectedWork_hue}</Link>
+                  <Link onClick={handleClear}>所有藝術品▶  件 {selectedMaterial}  {selectedWork_hue}</Link>
                 </p>
            <Dropdown>
                   <Dropdown.Toggle

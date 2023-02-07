@@ -9,7 +9,7 @@
                        "ProductsDetail_aside  ProductsDetail_aside"
                        "ProductsDetail_main  ProductsDetail_main" 
                       ; /* 2.區域分為4行兩列 */
-  grid-template-rows:  750px 400px 450px  380px; /* 3.各區域 寬高設置 */
+  grid-template-rows:  950px 500px 450px 380px; /* 3.各區域 寬高設置 */
   grid-template-columns: 855px 1fr;
 }
 #ProductsDetail_container_fluid{
@@ -26,8 +26,9 @@
   
 }
 .ProductsDetail_img-pic{
-  margin-top: 100px;
-  width: 35vw;
+  margin: 0 0 0 250px;
+  width: 30vw;
+  object-fit: cover;
 }
  
 #ProductsDetail_section > #ProductsDetail_hgroup {
