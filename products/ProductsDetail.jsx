@@ -72,30 +72,18 @@ const ProductsDetail = () => {
     </Modal>
   );
 
-  
+  const [data, setData] = useState([]);
   const [artistData, setArtistData] = useState([]);
   const [selectedArtist, setSelectedArtist] = useState([]);
   const { productId } = useParams();
-  const [data, setdata] = useState([]);
   const { artistId } = useParams();
-  const [artist, setData] = useState([]);
+
 
   useEffect(() => {
     // console.log('第二個參數是空陣列')
     // 在 component 初始化的時候跑一次
     // 通常會把去跟後端要資料的動作放在這裡
 
-    async function getdata() {
-      let response = await axios.get(
-        `http://localhost:3001/product/${productId}?`
-      );
-      setdata(response.data);
-      // console.log(response.data)
-    }
-    getdata();
-  }, []);
-
-  useEffect(() => {
     async function getData() {
       let response = await axios.get(`http://localhost:3001/product/${productId}?`);
       setData(response.data);
@@ -105,18 +93,28 @@ const ProductsDetail = () => {
 
   useEffect(() => {
     async function getArtistData() {
-      let response = await axios.get('http://localhost:3001/artist');
-      setArtistData(response.data);
+      let artistResponse = await axios.get('http://localhost:3001/artist');
+      setArtistData(artistResponse.data);
     }
     getArtistData();
   }, []);
+
+  console.log(artistData)
+  console.log(data)
+  // let filtered = [...artistData]
+  const filtered = artistData.filter((artist) => artist.users_name === data.artist)
+  // setArtistData(filtered);
+  console.log(filtered)
+  console.log(artistData)
   
-  useEffect(() => {
-    const filteredData = artistData.filter((data) => {
-      return selectedArtist.some(selectedArtist => selectedArtist.id === data.user_id);
-    });
-    setData(filteredData);
-  }, [selectedArtist, artistData]);
+
+  
+  // useEffect(() => {
+  //   const filteredData = artistData.filter((data) => {
+  //     return selectedArtist.some(selectedArtist => selectedArtist.id === data.user_id);
+  //   });
+  //   setData(filteredData);
+  // }, [selectedArtist, artistData]);
 
     // console.log('第二個參數是空陣列')
     // 在 component 初始化的時候跑一次
