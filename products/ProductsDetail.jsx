@@ -1,4 +1,4 @@
-/// import React from 'react';
+// import React from 'react';
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -126,6 +126,9 @@ const ProductsDetail = () => {
   //   setData(filteredData);
   // }, [selectedArtist, artistData]);
 
+  // console.log('第二個參數是空陣列')
+  // 在 component 初始化的時候跑一次
+  // 通常會把去跟後端要資料的動作放在這裡
 
   const display = (
     <>
@@ -238,7 +241,6 @@ const ProductsDetail = () => {
                     </p>
                   </div>
                   <div className="col-md-6">
-                    {/* <img className="ProductsDetail_Pic" src={productsDetail.img_file}/> */}
                     <img src={demo} alt="" className="ProductsDetail_demobox" />
                   </div>
                 </div>
@@ -260,14 +262,11 @@ const ProductsDetail = () => {
                           <div className="ProductsDetail_card-body-wrap">
                             <h5 className="ProductsDetail_card-title">
                               {artistData.users_name}
-                              {/* {filtered[0].users_name} */}
                             </h5>
                             <p className="ProductsDetail_card-text">French</p>
                             <p className="ProductsDetail_Detail-text">
                               <p className="ProductsDetail_p" align="left">
                               {artistData.users_introduce}
-                                {/* {filtered[0].users_introduce} */}
-                                {/* 我是林容德，84年次，出生於嘉義縣水上鄉。父親任職於新營長榮鋼鐵品管課課長，母親為財團法人嘉義北回文化藝術基金會董事長助理，我的哥哥畢業於國立交通大學，目前在桃園星宇航空總部工作 */}
                               </p>
                             </p>
                             <button className="ProductsDetail_follow">
