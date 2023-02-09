@@ -1,27 +1,110 @@
-import React from "react";
 import "./sellerhome.css";
 import { Link } from "react-router-dom";
 import logo1 from '../../../logo1.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import SellerButton from './SellerButton'
+import axios from "axios";
+import React, { useState,useEffect } from 'react'
 
-// Onclick
 
-import { SellerFrontPage,SellerPage,SellerUpload,SellerProduct,SellerOrder } from './SellerOnclick'
-
+import {
+    SellerFrontPage,
+    SellerPage,
+    SellerUpload,
+    SellerProduct,
+    SellerOrder,
+} from "./SellerOnclick";
 
 
 // icon
-import buyerImg from '../image/buyHead.png'
-import sellerHouseIcon from '../image/sellerHouseIcon.svg'
-import sellerpageIcon from '../image/sellerpageIcon.svg'
-import sellerupIcon from '../image/sellerupIcon.svg'
-import sellerlistIcon from '../image/sellerlistIcon.svg'
-import sellerorderIcon from '../image/sellerorderIcon.svg'
+import buyerImg from "../image/buyHead.png";
+import sellerHouseIcon from "../image/sellerHouseIcon.svg";
+import sellerpageIcon from "../image/sellerpageIcon.svg";
+import sellerupIcon from "../image/sellerupIcon.svg";
+import sellerlistIcon from "../image/sellerlistIcon.svg";
+import sellerorderIcon from "../image/sellerorderIcon.svg";
+
 
 
 function SellerHome() {
+  let [UserData, setUserData] = useState(); //記錄數值
+  let [UserOldDatas, setUserOldDatas] = useState(); //原本的數據
+  let [UserOrders,setUserOrders] = useState(); //記錄使用者訂單
+  // 只執行一次
+  useEffect(() => {
+      async function getMember2() {
+          
+          let response2 = await axios.get(
+              `http://localhost:3001/api/members/artistData`,
+              {
+                  withCredentials: true,
+              }
+          );
+          setUserData(response2.data[0].users_id);
+          console.log(response2.data[0]); 
+          setUserOldDatas(response2.data[0]);
+          let responseOrder = await axios.get(
+              `http://localhost:3001/api/members/orders`,
+              {
+                  withCredentials: true,
+              }
+          );
+          setUserOrders(responseOrder.data[0]);
+      }
+      getMember2();
+  }, []);
+
+
+
+
+  //  記錄輸入的數值
+  const [UserInputData, setUserInputData] = useState({
+      username: "",
+      account: "",
+      // email: "",
+      phone: "",
+  });
+  const [UserIntroduce, setUserIntroduce] = useState({
+      users_introduce:''
+  });
+  // 每次輸入後更新使用者資料
+  useEffect(() => {
+      console.log(UserInputData);
+  }, [UserInputData]);
+  const handleChange = (event) => {
+      setUserInputData({
+          ...UserInputData,
+          [event.target.name]: event.target.value,
+      });
+  };
+  // 每次輸入後更畫廊資料
+  useEffect(() => {
+      console.log(UserIntroduce);
+  }, [UserIntroduce]);
+  const handleChange2 = (event) => {
+      setUserIntroduce({
+          ...UserIntroduce,
+          [event.target.name]: event.target.value,
+      });
+  };
+  // 送出輸入資料
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      axios
+          .put(`http://localhost:3001/api/members`, {
+              username: UserInputData.username,
+              account: UserInputData.account,
+              // email: UserInputData.email,
+              phone: UserInputData.phone,
+              usersId: UserData,
+          })
+          .then((response) => console.log(response))
+          .catch((error) => console.error(error));
+  };
+  console.log(UserOldDatas);
+  console.log(UserOrders);
+
+
   return (
     <>
       <div className="d-flex">

@@ -1,12 +1,17 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import axios from "axios";
+import React, { useState,useEffect } from 'react'
+
+//icon
 import { TiArrowSortedDown } from 'react-icons/ti'
 import './sellerhome.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { width } from "@mui/system";
 import {RiSearch2Line} from 'react-icons/ri'
+
+
 
 function SellerFrontPage(params) {
   ReactDOM.render(
@@ -77,6 +82,7 @@ function SellerPage(params) {
     </div>,
     document.getElementById("sellerhome__main"));
 }
+
 function SellerUpload(params) {
   ReactDOM.render(
     <div className="SellerUpload">
@@ -209,9 +215,14 @@ function SellerUpload(params) {
     </div>,
     document.getElementById("sellerhome__main"));
 }
+
+//商品頁面
 function SellerProduct(params) {
-  ReactDOM.render(
+ ReactDOM.render(
     <div>
+      
+         
+        return (
       <section id="SellerProduct__section ">
       <nav id="SellerProduct__nav d-flex">
         <h1 className="SellerProduct__total">共有26件</h1>
@@ -236,7 +247,7 @@ function SellerProduct(params) {
             
                 <div className="SellerProduct__card-text">
                   <p className="SellerProduct__productId">
-                    品名品名品名品名
+              
                   </p>
                   <p className="SellerProduct__article">作者作者作者作者</p>
                   <p className="SellerProduct__price">$16900</p>
@@ -257,17 +268,6 @@ function SellerProduct(params) {
                 </div>
               </div>
 
-              <div className="SellerProduct__item col">         
-                <img className="SellerProduct__card-img-top" src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3YyXC9jcm9wcGVkXC8zMjA5XC9tYWluXC96b29tXC8zMTU0NzdfZGY4ZjEyMjI4MzlmZDE4MWY4N2ZjYmI3ZmQyNmM2NTkuanBlZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUwLCJoZWlnaHQiOjc1MCwiZml0IjoiaW5zaWRlIn0sInRvRm9ybWF0Ijoid2VicCIsIndlYnAiOnsicXVhbGl0eSI6ODB9fX0=?signature=8801d203789aa1e99e51ff76f768a15bd51149a7b3e4cc942db977b937fe671e"/>
-            
-                <div className="SellerProduct__card-text">
-                  <p className="SellerProduct__productId">
-                    品名品名品名品名
-                  </p>
-                  <p className="SellerProduct__article">作者作者作者作者</p>
-                  <p className="SellerProduct__price">$16900</p>
-                </div>
-              </div>
               <div className="SellerProduct__item col">
                 <img
                   className="SellerProduct__card-img-top"
@@ -282,19 +282,7 @@ function SellerProduct(params) {
                   <p className="SellerProduct__price">$16900</p>
                 </div>
               </div>
-              <div className="SellerProduct__item col">
-                <img
-                  className="SellerProduct__card-img-top"
-                  src="https://sh-cdn.singulart.com/eyJidWNrZXQiOiJzaW5ndWxhcnQtd2Vic2l0ZS1wcm9kIiwia2V5IjoiYXJ0d29ya3NcL3YyXC9jcm9wcGVkXC8zMzA1N1wvbWFpblwvem9vbVwvMTUwMjYxOV83OTI0YWVmNjJjZjYxYmVkNDEzZmIyMTJhOTA2NTI0Mi5qcGVnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3NTAsImhlaWdodCI6NzUwLCJmaXQiOiJpbnNpZGUifSwidG9Gb3JtYXQiOiJ3ZWJwIiwid2VicCI6eyJxdWFsaXR5Ijo4MH19fQ==?signature=5160b85669a83546d04479b705b9c1aaccbdb3d6e1605ef10ca6d45baabdd6d0"
-                />
-                <div className="SellerProduct__card-text">
-                  <p className="SellerProduct__productId">
-                    品名品名品名品名
-                  </p>
-                  <p className="SellerProduct__article">作者作者作者作者</p>
-                  <p className="SellerProduct__price">$16900</p>
-                </div>
-              </div>
+              
               <div className="SellerProduct__item col">
                 <img
                   className="SellerProduct__card-img-top"
@@ -369,9 +357,12 @@ function SellerProduct(params) {
             </div>
         </main>
       </section>
+       )
+   
     </div>,
     document.getElementById("sellerhome__main"));
 }
+
 function SellerOrder(params) {
   ReactDOM.render(<div>
       <div className="sellerorder__main__text ">
