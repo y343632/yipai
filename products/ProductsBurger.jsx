@@ -5,7 +5,7 @@ import ProductRightNav from './ProductRightNav';
 const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
-  left: 20px;
+  right: 20px;
   z-index: 10;
   display: none;
 
@@ -24,7 +24,6 @@ const StyledBurger = styled.div`
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
-    
 
     &:nth-child(1) {
       transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
