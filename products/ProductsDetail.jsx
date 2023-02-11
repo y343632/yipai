@@ -17,6 +17,7 @@ import { useParams } from "react-router-dom";
 import { useCart } from "../cart/utils/useCart";
 
 const ProductsDetail = () => {
+  window.scrollTo(0, 0);
   // cartpart
   const {
     cart,
@@ -129,6 +130,7 @@ const ProductsDetail = () => {
     </Modal>
   );
 
+  const [products, setProducts] = useState('')
   const [selectedProducts, setSelectedProducts] = useState([])
   const [data, setData] = useState([]);
   const [artistData, setArtistData] = useState([]);
@@ -136,7 +138,6 @@ const ProductsDetail = () => {
   const { productId } = useParams();
   const { artistId } = useParams();
   const [artistName, setArtistName] = useState([]);
-  const [products, setProducts] = useState('')
 
   
 
@@ -347,11 +348,12 @@ const ProductsDetail = () => {
         </h3>
         {SelectedImg_file.slice(0, 5).map((SelectedImg_file, index) => {
           return (
-          <div className="ProductsDetail_main-wrap" >
+          <div className="ProductsDetail_main-wrap" key={SelectedImg_file.id}>
             <table className="ProductsDetail_other-product">
+            <thead>
               <tr className="ProductsDetail_card-pic ProductsDetail_pic1">
                 <td>
-                  <Link to={`/products/${SelectedImg_file.id}`}>
+                <a href={`http://localhost:3000/products/${SelectedImg_file.id}`}>
                   <img
                     className="ProductsDetail_pic-img"
                     src= {SelectedImg_file.img_file}
@@ -360,9 +362,10 @@ const ProductsDetail = () => {
                     <h6 className="ProductsDetail_productId">{SelectedImg_file.name}</h6>
                     <p className="ProductsDetail_price">${SelectedImg_file.price}</p>
                   </div>
-                  </Link>
+                  </a>
                 </td>
               </tr>
+            </thead>
             </table>
           </div>
           )
