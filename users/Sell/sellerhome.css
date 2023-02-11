@@ -213,33 +213,43 @@ padding-top: 20px;
   }
   .SellerUpload__color-item-red{
     background-color: rgb(214, 76, 76);
+    border: none;
   }
   .SellerUpload__color-item-ori{
     background-color: rgb(238, 149, 15);
+    border: none;
   }
   .SellerUpload__color-item-yel{
     background-color: rgb(240, 200, 39);
+    border: none;
   }
   .SellerUpload__color-item-gre{
     background-color: rgb(153, 223, 118);
+    border: none;
   }
   .SellerUpload__color-item-blu{
     background-color: rgb(76, 186, 214);
+    border: none;
   }
   .SellerUpload__color-item-pur{
     background-color: rgb(190, 130, 230);
+    border: none;
   }
   .SellerUpload__color-item-bro{
     background-color: rgb(176, 78, 33);
+    border: none;
   }
   .SellerUpload__color-item-whi{
     background-color: rgb(255, 255, 255);
+    border: none;
   }
   .SellerUpload__color-item-gra{
     background-color: rgb(155, 155, 155);
+    border: none;
   }
   .SellerUpload__color-item-bla{
     background-color: rgb(29, 28, 28);
+    border: none;
   }
 
 

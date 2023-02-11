@@ -19,7 +19,7 @@ const SellLogin = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         let response = await axios.post(
-            "http://localhost:3001/api/auth/login",
+            "http://localhost:3001/api/auth/Artistlogin",
             member,
             {
                 // 跨源存取 cookie
