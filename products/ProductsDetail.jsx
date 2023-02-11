@@ -125,8 +125,6 @@ const ProductsDetail = () => {
         >
           返回
         </Button>
-
-        
       </Modal.Footer>
     </Modal>
   );
@@ -140,7 +138,9 @@ const ProductsDetail = () => {
   const [artistName, setArtistName] = useState([]);
   const [products, setProducts] = useState('')
 
-  useEffect(() => {
+  
+
+    useEffect(() => {
     // console.log('第二個參數是空陣列')
     // 在 component 初始化的時候跑一次
     // 通常會把去跟後端要資料的動作放在這裡
@@ -153,7 +153,6 @@ const ProductsDetail = () => {
       getData();
     }, []);
     
-    
     useEffect(() => {
       async function getArtistData() {
         let artistResponse = await axios.get('http://localhost:3001/artist');
@@ -162,14 +161,14 @@ const ProductsDetail = () => {
       getArtistData();
     }, []);
     
-    console.log(artistData);
-    console.log(data);
+    //console.log(artistData);
+    //console.log(data);
     
     let filtered = [...artistData];
     filtered = filtered.filter(
       (artistData) => artistData.users_name === data[0].artist
       );
-      console.log(filtered)
+      //console.log(filtered)
       
       useEffect(() => {
         async function getProducts() {
@@ -180,13 +179,19 @@ const ProductsDetail = () => {
         getProducts();
       }, []);
 
+      //console.log(products);
+      // console.log(artistData[0].users_name );
+      
   let SelectedImg_file = [...products]; 
       SelectedImg_file = SelectedImg_file.filter(
-      (products) => products.artist === artistData[0].users_name
+        (SelectedImg_file) => SelectedImg_file.artist === data[0].artist
       );
   console.log(SelectedImg_file);
 
-  
+  //SelectedImg_file = SelectedImg_file.filter(
+  //  (products) => products.artist === filtered[0].id
+  //);
+
   const display = (
     <>
       <div className="container-fluid" id="ProductsDetail_container_fluid">
@@ -333,31 +338,36 @@ const ProductsDetail = () => {
               </aside>
               )
               })}
-            
+
+        {/* 電腦版 */}
+
         <main id="ProductsDetail_main">
         <h3 className="fw-bold ProductsDetail_more">
-              這個藝術家的其他商品
+              其他推薦的藝術品
         </h3>
         {SelectedImg_file.slice(0, 5).map((SelectedImg_file, index) => {
           return (
-          <div className="ProductsDetail_main-wrap">
+          <div className="ProductsDetail_main-wrap" >
             <table className="ProductsDetail_other-product">
               <tr className="ProductsDetail_card-pic ProductsDetail_pic1">
                 <td>
+                  <Link to={`/products/${SelectedImg_file.id}`}>
                   <img
                     className="ProductsDetail_pic-img"
                     src= {SelectedImg_file.img_file}
-                  />
+                    />
                   <div className="ProductsDetail__card-text">
                     <h6 className="ProductsDetail_productId">{SelectedImg_file.name}</h6>
                     <p className="ProductsDetail_price">${SelectedImg_file.price}</p>
                   </div>
+                  </Link>
                 </td>
               </tr>
             </table>
           </div>
           )
               })}
+      
         </main>
         </section>
         );

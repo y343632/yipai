@@ -262,7 +262,7 @@ margin: 0px;
                         "Products__figure "
                         "Products__figure "
                         "Products__footer "; /* 2.區域分為4行1列 */
-    grid-template-rows: 100px 2000px 50px;/* 3.各區域 寬高設置 */
+    grid-template-rows: 100px 5000px 50px;/* 3.各區域 寬高設置 */
     grid-template-columns: 100vw;
     justify-content: center;
   }
