@@ -149,18 +149,24 @@ p.ProductsDetail_price{
   position:absolute;
   margin-top: 60px;
 }
-.ProductsDetail_pic-img{
-  width: 250px;
-  height: 250px;
-  object-fit:cover;
+
+.ProductsDetail_card-img-top{
+  width: 200px;
+  object-fit:contain;
   position: relative;
-  padding: 10px;
+  
+}
+.ProductsDetail_pic-img{
+  height: 330px;
+  padding: 20px;
+  object-fit:contain;
 } 
 
 .ProductsDetail__card-text{
   max-width:100%;
   height: 56px;
   padding:0 10px  10px  10px;
+  
 }
 
 p.ProductsDetail_article{
