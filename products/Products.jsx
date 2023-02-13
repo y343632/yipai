@@ -3,8 +3,8 @@ import { Link   } from 'react-router-dom'
 import './products.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Button from 'react-bootstrap/Button';
 import ProductsPagination from './ProductsPagination'
-
 
 //篩選區域
 import ProductsSize_Slider from './ProductsSize_Slider'
@@ -35,14 +35,16 @@ function Products  ()  {
   const [selectedProduct_style, setSelectedProduct_style] = useState('')
   const [selectedWidth, setSelectedWidth] = useState('')
   const [selectedWork_hue, setSelectedWork_hue] = useState('')
-  const [selectedHeight, setSelectedHeight] = useState('')
+  const [selectedHegiht, setSelectedHegiht] = useState('')
+
+  
   const [selectedPrice, setSelectedPrice] = useState('')
 
   // Width
   const [widthRange, setWidthRange] = useState('所有')
   
   const widthRangeTypes = ['所有', '50', '100', '300', '400',]
-  const heightRangeTypes = ['所有', '50', '100', '300', '400',]
+  const hegihtRangeTypes = ['所有', '50', '100', '300', '400',]
 
   // radio
   const [priceRange, setPriceRange] = useState('所有')
@@ -55,6 +57,8 @@ function Products  ()  {
       //清空初始值
       setProducts(originalProduct)
       console.log(originalProduct)
+
+
       //清空媒材
       setSelectedMaterial('')
       //清空風格
@@ -66,7 +70,7 @@ function Products  ()  {
       //清空Width
       setSelectedWidth([])
       //清空Hegiht
-      setSelectedHeight([])
+      setSelectedHegiht([])
       //清空價格
       setSelectedPrice([])
   
@@ -74,12 +78,11 @@ function Products  ()  {
 
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostPerPage] = useState(13)
-
     const lastPostIndex = currentPage * postsPerPage
     const firstPostIndex = lastPostIndex - postsPerPage
     const currentPosts = product.slice(firstPostIndex, lastPostIndex)
     const pages = Math.ceil(product.length / postsPerPage)
-    console.log(currentPage,product.length,pages)
+    //console.log(currentPage,product.length,pages)
   
   useEffect(() => {
     console.log('空陣列的 useEffect');
@@ -98,6 +101,8 @@ function Products  ()  {
     getProducts();
   }, []);
 
+  
+  //選擇媒材
   const handleClick = (value, type) => {
     //先設定一個filter(符合條件的新陣列)值
     let filtered =[...originalProduct]
@@ -166,35 +171,36 @@ function Products  ()  {
     }
   }
   const handleProduct_styleRange = (value, type) => {
-  let Productsfilter = [...originalProduct]
+    
+    let Productsfilter = [...originalProduct]
   }
 
 // 處理Hegiht區間選項
-const handleHeightRange = (value, type) => {
+const handleHegihtRange = (value, type) => {
     
   let Productsfilter = [...originalProduct]
  
     switch (value) {
     case '50':
       Productsfilter = Productsfilter.filter((product) => {
-        return  product.height >= 50 && product.height <= 99
+        return  product.hegiht >= 50 && product.hegiht <= 99
       })
     console.log(Productsfilter)
     console.log('Hegiht：', value)
       break
     case '100':
       Productsfilter = Productsfilter.filter((product) => {
-        return product.height >= 100 && product.height <= 299
+        return product.hegiht >= 100 && product.hegiht <= 299
       })
       break
     case '300':
       Productsfilter = Productsfilter.filter((product) => {
-        return product.height >= 300 && product.height <= 399
+        return product.hegiht >= 300 && product.hegiht <= 399
       })
       break  
     case '400':
       Productsfilter = Productsfilter.filter((product) => {
-        return product.height >= 400 
+        return product.hegiht >= 400 
         })
       break  
     // 指所有的產品都出現
@@ -511,7 +517,7 @@ const handleWidthRange = (value, type) => {
                   >≤400</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown> 
-              <h5 className="Products＿slider-color-size-h6" onClick={handleClear}>短邊{selectedHeight}</h5>
+              <h5 className="Products＿slider-color-size-h6" onClick={handleClear}>短邊{selectedHegiht}</h5>
               <Dropdown>
                   <Dropdown.Toggle
                     variant="--color-bg "
@@ -523,25 +529,25 @@ const handleWidthRange = (value, type) => {
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                   <Dropdown.Item value="所有"
-                  onClick={() => handleHeightRange('所有', 'height')}
+                  onClick={() => handleHegihtRange('所有', 'hegiht')}
                   >
                   所有
                   </Dropdown.Item>
                     <Dropdown.Item value="50"
-                  onClick={() => handleHeightRange('50', 'height')}
+                  onClick={() => handleHegihtRange('50', 'hegiht')}
                   >
                   ≤50≤
                   </Dropdown.Item>
                     <Dropdown.Item value="100"
-                  onClick={() => handleHeightRange('100', 'height') }
+                  onClick={() => handleHegihtRange('100', 'hegiht') }
                   >
                   ≤100≤</Dropdown.Item>
                     <Dropdown.Item value="300"
-                  onClick={() => handleHeightRange('300', 'height')}
+                  onClick={() => handleHegihtRange('300', 'hegiht')}
                   >
                   ≤300≤</Dropdown.Item>
                     <Dropdown.Item value="400"
-                  onClick={() => handleHeightRange('400', 'height')}
+                  onClick={() => handleHegihtRange('400', 'width')}
                   >≤400</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
@@ -591,6 +597,7 @@ const handleWidthRange = (value, type) => {
                 </Dropdown>
             </table>
           </aside>
+
           <nav id="Products＿nav">
           <div className="Products＿nav__h3 d-flex  " align="left">
               <ProductsBurger
@@ -626,30 +633,33 @@ const handleWidthRange = (value, type) => {
            </div>
            </nav>
            <figure id="Products__figure">
-           <div className="Products__figure-wrap">
-  {currentPosts.map((product_data, index) => {
-     return (
-       <>
-       <div className="Products__img-id-wrap" >
-         <a href= {`/products/${product_data.id}`}>
-           <img className="Products__card-img-top"
-             src={product_data.img_file}
-           />
-           <h4 className="Products__productId">{product_data.name}</h4>
-           <p className="Products__material mb-0">{product_data.material},{product_data.creation_year}<span className='ms-2'></span></p>
-           <p className="Products__article">{product_data.artist}</p>
-           <h5 className="Products__price">${product_data.price}</h5>
-         </a>
-        </div>
-       </>
-     )
-   })}
- </div>
+            <div className="Products__figure-wrap">
+              {currentPosts.map((product_data, index) => {
+                return (
+                  <div key={product_data.id} classMame="Products__img-id-wrap">
+                    <Link to={`/products/${product_data.id}`}>
+                      <img
+                        className="Products__card-img-top"
+                        src={product_data.img_file}
+                      />
+                      <h4 className="Products__productId">{product_data.name}</h4>
+                      <p className="Products__material mb-0">{product_data.material},{product_data.creation_year}<span className='ms-2'>{product.creation_year}</span></p>
+                      <p className="Products__article">{product_data.artist}</p>
+                      <h5 className="Products__price">${product_data.price}</h5>
+                    </Link>
+                  </div>
+                )
+              })}
+            
+            </div>
           </figure>
           <footer id="Products__footer">
+              <div className="Products__footer_page">
+            
+             </div>
           </footer>
         </section>
-        <div className="d-flex Products__currentPage">
+        <div className="d-flex justify-content-center">
               <RiArrowUpSLine
                 style={{
                   display: 'inline-block',
@@ -669,7 +679,7 @@ const handleWidthRange = (value, type) => {
                 {'<<'}
               </RiArrowUpSLine>
               <ProductsPagination
-                
+                className="product__page-item "
                 postsPerPage={postsPerPage}
                 setCurrentPage={setCurrentPage}
               />
@@ -691,10 +701,8 @@ const handleWidthRange = (value, type) => {
                 {'>>'}
                 
               </RiArrowDownSLine>
-          </div>
-          
+            </div>
       </div>
-    
     </>
   )
 }
