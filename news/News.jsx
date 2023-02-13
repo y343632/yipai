@@ -1,4 +1,4 @@
-
+// import React from 'react'
 import './news.css'
 import { Link } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -58,8 +58,7 @@ function News()  {
     <div>
       <header id="News__header">
         <div className="News__banner">
-        <div className="News__banner__img"></div>
-       
+          <div className="News__banner__img"></div>
         </div>
       </header>
       <section id="News__section">
